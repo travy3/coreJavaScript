@@ -3,7 +3,28 @@
 <head lang="en">
     <meta charset="UTF-8">
     <script>
-        
+        'use strict';
+        var xiaohong = {
+            name: '小红',
+            age: 20,
+            city: 'Beijing',
+            'middle-school': 'No.1 Middle School'
+
+        };
+        alert(xiaohong['middle-school'])
+        alert(xiaohong.hasOwnProperty('name'))
+//        for(var key in xiaohong){
+//            if(xiaohong.hasOwnProperty(key)) alert(key);
+//        }
+        var a = ['A', 'B', 'C'];
+        var s = new Set(['A', 'B', 'C']);
+        var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+//        for(var x of a){
+//            alert(x)
+//        }
+       for(var x of m){
+            alert(x[0]+'='+x[1])
+        }
     </script>
     <title></title>
 </head>
