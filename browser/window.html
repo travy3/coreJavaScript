@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <title></title>
+</head>
+<body>
+<dl id="drink-menu" style="border:solid 1px #ccc;padding:6px;">
+    <dt>摩卡</dt>
+    <dd>热摩卡咖啡</dd>
+    <dt>酸奶</dt>
+    <dd>北京老酸奶</dd>
+    <dt>果汁</dt>
+    <dd>鲜榨苹果汁</dd>
+</dl>
+</body>
+<script>
+    'use strict';
+    alert('window inner size:'+window.innerHeight+' x '+window.innerWidth);
+    alert('appName = ' + navigator.appName + '\n' +
+            'appVersion = ' + navigator.appVersion + '\n' +
+            'language = ' + navigator.language + '\n' +
+            'platform = ' + navigator.platform + '\n' +
+            'userAgent = ' + navigator.userAgent);
+    alert('Screen size = ' + screen.width + ' x ' + screen.height);
+    //        location.assign('http://www.bing.com');
+    //        location.reload()
+    document.title='mazda atenza';
+
+    //        var menu = document.getElementById('drink-menu');
+    //        var drinks = document.getElementsByTagName('dt');
+    var i, s, menu, drinks;
+
+    menu = document.getElementById('drink-menu');
+    alert(menu) // 'DL'
+
+    drinks = document.getElementsByTagName('dt');
+    s = '提供的饮料有:';
+    for (i=0; i<drinks.length; i++) {
+        alert(drinks[i].innerText);
+        s = s + drinks[i].innerHTML + ',';
+    }
+    alert(s);
+    alert(document.cookie);
+    history.back();
+
+</script>
+</html>
