@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script>
+        'use strict';
+        var abs = function (x) {
+            if(typeof x != 'number'){
+                throw 'Not a num';
+            }
+            if(x >= 0){
+                return x;
+            }else{
+                return -x;
+            }
+        }
+//        alert(abs(0));
+
+        function abx(a,b,...rest){
+            alert(a);
+            alert(b);
+            alert(rest);
+        }
+        abx('wer',123,'asd','zxc,df');
+        /**
+         * 变量申明提升
+         */
+        var qq = function(){
+            var x = 'hello '+ y;
+            alert(x);
+            var y = 'world';
+        };
+        qq();
+
+    </script>
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>

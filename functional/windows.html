@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script>
+        'use strict';
+        var str = 'learn javascript';
+        alert(window.str);
+        var qq = function(){
+            var x = 'hello '+ y;
+            alert(x);
+            var y = 'world';
+        };
+        window.qq();
+        /**
+         * 防止命名冲突
+         * @type {{}}
+         */
+        var MYAPP={};
+        MYAPP.name='asd';
+        MYAPP.version='1.0.1';
+        MYAPP.createF  =function(){
+          return 'creatF';
+        };
+        alert(MYAPP.createF());
+        //循环变量用let i声明
+        function foo(){
+            for(let i = 0; i< 100; i++){
+                var x = 0;
+                x+=i;
+            }
+            alert(x);
+//            i+=100;
+//            alert(i);
+        }
+        foo();
+        //常量定义
+        const PI = 3.14;
+//        PI = 3;
+        alert(PI);
+    </script>
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>

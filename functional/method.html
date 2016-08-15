@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script>
+        xiaoming = {
+            name: '小明',
+            birth: 1989,
+            age: function(){
+                var year = new Date().getFullYear();
+                return year - this.birth;
+            }
+        };
+        alert(xiaoming.age())
+
+        /**
+         * javascript 第一个坑 this指向
+         */
+        var xm1 = xiaoming;
+        alert(xm1.name);
+        function getAge(){
+            var year = new Date().getFullYear();
+            return year - this.birth+1;
+        }
+        xiaoming.age = getAge;
+        alert(xiaoming.age())
+        alert(getAge());
+
+        var xiaoming = {
+            name: '小明',
+            birth: 1990,
+            age: function () {
+                var that = this; // 在方法内部一开始就捕获this
+                function getAgeFromBirth() {
+                    var y = new Date().getFullYear();
+                    return y - that.birth; // 用that而不是this
+                }
+                return getAgeFromBirth();
+            }
+        };
+
+        xiaoming.age(); // 25
+        alert(xiaoming.age());
+
+        /**
+         * 解决this指向问题
+         * @returns {number}
+         */
+        function getAge() {
+            var y = new Date().getFullYear();
+            return y - this.birth;
+        }
+
+        var xiaoming = {
+            name: '小明',
+            birth: 1990,
+            age: getAge
+        };
+
+        xiaoming.age(); // 25
+        getAge.apply(xiaoming, []); // 25, this指向xiaoming, 参数为空
+        alert(getAge.apply(xiaoming,[]));
+
+        //类似动态代理  装饰器模式
+        Math.max.apply(null, [3, 5, 4]); // 5
+        Math.max.call(null, 3, 5, 4); // 5
+
+        //高阶函数map reduce
+
+        function pow(x){
+            return x*x;
+        }
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        alert(arr.map(pow));
+
+        alert(arr.map(String));
+
+        //reduce 必须接受两个参数
+
+        alert((arr.reduce(function(x,y){
+            return x+y;
+        })))
+
+        //FILTER
+
+        var r = arr.filter(function(x){
+            return x %2 != 0;
+        })
+        alert(r)
+
+        //sort()方法会直接对Array进行修改，它返回的结果仍是当前Array：
+        alert(arr.sort(function(x,y){
+            if(x < y ){
+                return -1;
+            }else if(x > y ){
+                return 1;
+            }else{
+                return 0;
+            }
+        }))
+
+
+    </script>
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
