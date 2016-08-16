@@ -20,16 +20,23 @@
 
             //注意到id为md5-password的<input>标记了name="password"，
             // 而用户输入的id为input-password的<input>没有name属性。没有name属性的<input>的数据不会被提交。
+            var f = document.getElementById('test-file-upload');
+            var fileName = f.value;
+            if(!fileName || !(filename.endsWith('.jpg') || filename.endsWith('.png') || filename.endsWith('.gif'))){
+                alert("Can only upload image file.");
+                return false;
+            }
             return true;
         }
     </script>
     <title></title>
 </head>
 <body>
-<form id="login-form" method="post" onsubmit="return checkForm()">
+<form id="login-form" method="post" onsubmit="return checkForm()" enctype="multipart/form-data" >
     <input type="text" id="username" name="username">
     <input type="password" id="password" >
     <input type="hidden"  id="md5-password" name = "password">
+    <input type="file" id="test-file-upload">
     <button type="submit">Submit</button>
 </form>
 </body>

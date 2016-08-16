@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <title></title>
+</head>
+<body>
+<input id="test-response-text" type="text" value="22"/>
+<p id="test-jsonp"></p>
+<input type="button" value="刷新" onclick="getPrice()">
+</body>
+<script>
+    'use strict';
+    function success(text){
+        var textarea = document.getElementById('test-response-text');
+        textarea.value = text;
+    }
+
+    function fail(code){
+        var textarea = document.getElementById('test-response-text');
+        textarea.value = 'Error code: '+code;
+    }
+
+    var request =  new XMLHttpRequest();
+    request.onreadystatechange = function(){
+        if(request.readyState === 4) {
+            if (request.status === 200) {
+                return success(request.responseText);
+            } else {
+                console.log(request.status);
+                return fail(request.status)
+            }
+        } else {
+            //http请求继续
+        }
+    }
+
+//    request.open('GET','www.baidu.com');
+//    request.send();
+
+    alert('请求已发送，请等待响应...');
+    /**
+     * 这是因为浏览器的同源策略导致的。默认情况下，JavaScript在发送AJAX请求时，URL的域名必须和当前页面完全一致。
+
+     完全一致的意思是，域名要相同（www.example.com和example.com不同），协议要相同（http和https不同），
+     端口号要相同（默认是:80端口，它和:8080就不同）。有的浏览器口子松一点，允许端口不同，大多数浏览器都会严格遵守这个限制
+     */
+
+    /**
+     * JSONP 解决跨域访问
+     * @param data
+     */
+    function refreshPrice(data){
+        var p = document.getElementById('test-jsonp')
+        p.innerHTML = '当前价格：' +
+                data['0000001'].name +': ' +
+                data['0000001'].price + '；' +
+                data['1399001'].name + ': ' +
+                data['1399001'].price;
+    }
+
+    function getPrice(){
+        var js = document.createElement('script');
+        var head = document.getElementsByTagName('head')[0];
+        js.src = 'http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice';
+        head.appendChild(js);
+    }
+
+    /**
+     * CORS
+     */
+
+</script>
+</html>
