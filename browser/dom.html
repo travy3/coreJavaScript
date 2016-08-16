@@ -13,6 +13,7 @@
         <dt>果汁</dt>
         <dd>鲜榨苹果汁</dd>
     </dl>
+    <p id="js">JavaScript</p>
 </body>
 <script>
 
@@ -46,6 +47,22 @@
     p.style.color = '#ff0000';
     p.style.fontSize = '20px';
     p.style.paddingTop = '2em';
+    var js = document.getElementById('js');
+
+    menu.appendChild(js);
+    /**
+     * 因为我们插入的js节点已经存在于当前的文档树，因此这个节点首先会从原先的位置删除，再插入到新的位置。
+     * 更多的时候我们会从零创建一个新的节点，然后插入到指定位置：
+     */
+    var haskell = document.createElement('p');
+    haskell.id = 'haskell';
+    haskell.innerText = 'JASKELL';
+//    menu.appendChild(haskell);
+
+    menu.insertBefore(haskell,js);
+
+    var parent = haskell.parentNode;
+    var removed = parent.removeChild(haskell);
 
 </script>
 

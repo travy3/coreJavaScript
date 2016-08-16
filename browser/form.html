@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function doSubmitForm(){
+            var form = document.getElementById('test-form');
+            form.submit();
+        }
+        function checkForm(){
+            var init_pwd = document.getElementById('password');
+
+            var md5_pwd = document.getElementById('md5-password');
+
+            // 把用户输入的明文变为MD5:
+            md5_pwd.value = toMD5(input_pwd.value);
+//            pwd.value = toMD5(pwd.value);
+            // 可以在此修改form的input...
+            // 继续下一步:
+
+            //注意到id为md5-password的<input>标记了name="password"，
+            // 而用户输入的id为input-password的<input>没有name属性。没有name属性的<input>的数据不会被提交。
+            return true;
+        }
+    </script>
+    <title></title>
+</head>
+<body>
+<form id="login-form" method="post" onsubmit="return checkForm()">
+    <input type="text" id="username" name="username">
+    <input type="password" id="password" >
+    <input type="hidden"  id="md5-password" name = "password">
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
