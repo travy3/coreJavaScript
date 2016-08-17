@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src = "../jquery-1.7.2.js"></script>
+
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    <form class="ww" id="form1">
+        <input class="qq" id="input1">
+        <input name ="email">
+        <input items = 'A B'>
+    </form>
+</div>
+</body>
+<script>
+    alert($.fn.jquery);
+    alert(typeof $);
+//    jQuery.noConflict()
+    alert($)
+    /**
+     * 什么是jQuery对象？jQuery对象类似数组，它的每个元素都是一个引用了DOM节点的对象。
+     * 选择器
+     */
+
+    var form = $('#div1');// jQuery对象
+    var formDom  = form.get(0);// 假设存在div，获取第1个DOM元素
+    var another  = $(formDom);// 重新把DOM包装为jQuery对象
+    alert(formDom)
+
+    //按tag查找
+    var head = $('head');
+    alert(head.length);
+    var a = $('.qq.ww');// 所有节点包含`class="red"`都将返回
+    var email = $('[name=email]');
+    alert(email);
+    var ab = $('[tems="A B"]')
+    var icons = $('[name^=icon]'); // 找出所有name属性值以icon开头的DOM
+    // 例如: name="icon-1", name="icon-2"
+    var names = $('[name$=with]'); // 找出所有name属性值以with结尾的DOM
+    // 例如: name="startswith", name="endswith"
+    var icons = $('[class^="icon-"]'); // 找出所有class包含至少一个以`icon-`开头的DOM
+    /**
+     * 组合查找
+     */
+    var emailInput = $('input[name=email]');
+    var tr = $('form.red'); // 找出<tr class="red ...">...</tr>
+</script>
+</html>

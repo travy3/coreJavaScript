@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src = "../jquery-1.7.2.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div class="testing">
+        <ul class="lang">
+            <li class="lang-javascript" value="JavaScript">JavaScript</li>
+            <li class="lang-python">Python</li>
+            <li class="lang-lua">Lua</li>
+        </ul>
+    </div>
+</body>
+<script>
+    //层级选择器
+    var js = $('ul.lang li.lang-javascript');
+    alert(js.val());
+    //子选择器
+    var child = $('div.testing ul.lang')
+</script>
+</html>
