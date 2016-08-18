@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <style>
+        .highlight {
+            color: #dd1144;
+            background-color: #ffd351;
+        }
+    </style>
     <script src = "../jquery-1.7.2.js"></script>
     <title>Title</title>
 </head>
@@ -12,13 +18,31 @@
             <li class="lang-python">Python</li>
             <li class="lang-lua">Lua</li>
         </ul>
+        <ul class="lang">
+            <li class="js dy">JavaScript</li>
+            <li class="dy">Python</li>
+            <li id="swift">Swift</li>
+            <li class="dy">Scheme</li>
+            <li name="haskell">Haskell</li>
+        </ul>
+        <input id="test-radio" type="radio" name="test" checked="checked" value="1">
     </div>
 </body>
 <script>
     //层级选择器
     var js = $('ul.lang li.lang-javascript');
-    alert(js.val());
+    alert(js.text());
     //子选择器
     var child = $('div.testing ul.lang')
+
+    $($('ul.lang').get(0)).addClass('highlight')
+    $('li[value=JavaScript]').hide()
+
+    alert($('#test-radio').attr('checked'));
+    alert($('#test-radio').prop('checked'));
+    alert($('#test-radio').is(':checked'));
+
+    var ul2 = $($('ul.lang').get(1));
+    ul2.append('<li><span>Java</span></li>')
 </script>
 </html>
