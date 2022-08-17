@@ -3,7 +3,30 @@
 <head lang="en">
     <meta charset="UTF-8">
     <script>
-        alert('Hello World');
+        'use strict';
+        // alert('Hello World');
+
+        //NaN is not a number ，当无法得出计算结果时 用NaN表示
+        // alert(NaN===NaN);
+
+        console.log(1/3===(1-2/3));
+        let f = Math.abs(1/3-(1-2/3))<0.0000001;
+        console.log(f)
+
+        var arr  = [1, 2, 3.14, 'Hello', null, true];
+        console.log(arr);
+        var i=100;
+        console.log("\x41")
+        console.log(`asd
+        asdqweqwe
+        qweqwe`);
+        var make = "bmw";
+        var model = "3";
+        console.log(`${make} ${model}`);
+        console.log(make.length);
+        console.log(make[0]);
+        console.log(make.toUpperCase());
+        console.log(model.toLowerCase());
     </script>
     <title></title>
 </head>
