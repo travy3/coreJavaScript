@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      "use strict";
+      var a = [1, 2, 3];
+      for (var x of a) {
+        console.log(x);
+      }
+      var testmap = new Map([
+        ["a", 1],
+        ["b", 2],
+        ["c", 3],
+      ]);
+      for (var x of testmap) {
+        console.log(x[0] + ":" + x[1]);
+      }
+      var s = new Set(["A", "B", "C"]);
+      s.forEach(function (element, sameElement, set) {
+        console.log(element);
+      });
+      var m = new Map([
+        [1, "x"],
+        [2, "y"],
+        [3, "z"],
+      ]);
+      m.forEach(function (value, key, map) {
+        console.log(value);
+        console.log(key);
+      });
+      var a = ["A", "B", "C"];
+      a.forEach(function (element) {
+        console.log(element);
+      });
+    </script>
+  </head>
+</html>

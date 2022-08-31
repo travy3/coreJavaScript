@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script>
+      "use strict";
+      var height = parseFloat(prompt("请输入身高(m):"));
+      var weight = parseFloat(prompt("请输入体重(kg):"));
+      var bmi = weight / height / height;
+      var trans_bmis = [
+        bmi - 18.5 < 0,
+        bmi - 25 < 0,
+        bmi - 28 < 0,
+        bmi - 32 < 0,
+      ];
+      var std = ["过轻", "正常", "过重", "肥胖", "严重肥胖"];
+      var ins = trans_bmis.indexOf(true);
+      if (ins == -1) {
+        ins == 4;
+      }
+      alert(std[ins]);
+    </script>
+  </head>
+  <body></body>
+</html>
