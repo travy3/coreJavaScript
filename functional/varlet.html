@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <script>
+            "use strict";
+             /**
+       * 变量申明提升
+       */
+      var qq = function () {
+        var x = "hello " + y;
+        console.log(x);
+        var y = "world";
+      };
+      qq();
+
+      function foo() {
+        for (var i = 0; i < 100; i++) {}
+        i += 100;
+        console.log("i=" + i);
+        for (let index = 0; index < 100; index++) {}
+      }
+      foo();
+      //解构赋值
+      var [x, y, z] = ["hellpo", "qwe", "zzz"];
+      console.log("x = " + x + ", y = " + y + ", z = " + z);
+      var person = {
+        name: "小明",
+        age: 20,
+        gender: "male",
+        passport: "G-12345678",
+        school: "No.4 middle school",
+      };
+      var { name, age, passport } = person;
+      // name, age, passport分别被赋值为对应属性:
+      console.log(
+        "name = " + name + ", age = " + age + ", passport = " + passport
+      );
+      var { hostname: domain, pathname: path } = location;
+      console.log("domain = " + domain + ", path = " + path);
+        </script>
+    </head>
+</html>
