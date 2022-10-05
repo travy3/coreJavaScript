@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+    <script>
+        "use strict";
+        var
+            r,
+            arr = ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
+        r = arr.filter(function (element, index, self) {
+            return arr.indexOf(element) == index;
+        });
+        console.log(r.toString());
+
+        function get_primes(arr) {
+            return arr.filter(function(element,index,self){
+                console.log(self.filter(x=>element%x==0))
+                return element!=1 && self.filter(x=>element%x==0).length<=2;
+            });
+        }
+        // 测试:
+        var
+            x,
+            r,
+            arr = [];
+        for (x = 1; x < 100; x++) {
+            arr.push(x);
+        }
+        r = get_primes(arr);
+        if (r.toString() === [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97].toString()) {
+            console.log('测试通过!');
+        } else {
+            console.log('测试失败: ' + r.toString());
+        }
+    </script>
+</head>

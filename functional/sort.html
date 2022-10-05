@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <script>
+        "use strict";
+        var arr = ['Google', 'apple', 'Microsoft'];
+        arr.sort((x,y)=>{
+            let tmpx = x.toUpperCase();
+            let tmpy = y.toUpperCase();
+            if(tmpx<tmpy){
+                return -1;
+            }
+            if(tmpx>tmpy){
+                return 1;
+            }
+            return 0;
+        })
+        console.log(arr);
+    </script>
+</head>
